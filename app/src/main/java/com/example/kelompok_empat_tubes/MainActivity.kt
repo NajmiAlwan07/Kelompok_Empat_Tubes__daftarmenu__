@@ -1,26 +1,30 @@
 package com.example.kelompok_empat_tubes
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 
 
 class MainActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var foodList: ArrayList<Food>
+    private lateinit var foodAdapter: FoodAdapter
+
+    override fun onCreate(saveInstanceState: Bundle?) {
+        super.onCreate(saveInstanceState)
         setContentView(R.layout.activity_main)
 
-
-        val btnLogout: Button = findViewById(R.id.btnLogout)
-        val savedLogin = getSharedPreferences("Login", MODE_PRIVATE)
-        val editSavedLogin = savedLogin.edit()
-        btnLogout.setOnClickListener {
-            editSavedLogin.putString("Email", null)
-            editSavedLogin.putString("Password", null)
-            editSavedLogin.putString("Status", "Off")
-            editSavedLogin.commit()
-            startActivity(Intent(this, LoginActivity::class.java))
-        }
+        init()
     }
+    private fun init(){
+        recyclerView = findViewById(R.id.recyclerView)
+        recyclerView.setHasFixedSize(true)
+        recyclerView.layoutManager = GridLayoutManager(this, 2)
+
+        foodList = ArrayList()
+    }
+
+    private fun addDataToList(){...}
+
 }
