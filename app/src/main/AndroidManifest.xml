@@ -13,6 +13,9 @@
         android:theme="@style/Theme.Kelompok_Empat_Tubes"
         tools:targetApi="31">
         <activity
+            android:name=".DaftarMenuMakanan"
+            android:exported="false" />
+        <activity
             android:name=".DetailProduct"
             android:exported="false" />
         <activity
